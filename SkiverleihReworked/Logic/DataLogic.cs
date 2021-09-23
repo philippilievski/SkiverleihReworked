@@ -59,6 +59,7 @@ namespace SkiverleihReworked.Logic
             var statusavaliable = Skiverleihcontext.Statuses
                 .Where(s => s.StatusID == 2).First();
 
+            item.Count += 1;
             item.Status = statusavaliable;
             Skiverleihcontext.Update(item);
             Skiverleihcontext.SaveChanges();

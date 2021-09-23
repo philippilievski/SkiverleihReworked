@@ -53,6 +53,7 @@
                     <DataGridTextColumn Binding="{Binding Price}" Header="Price" />
                     <DataGridTextColumn Binding="{Binding Category.Title}" Header="Category" />
                     <DataGridTextColumn Binding="{Binding Status.Title}" Header="Status" />
+                    <DataGridTextColumn Binding="{Binding Count}" Header="Lend count" />
                 </DataGrid.Columns>
             </DataGrid>
             <Button

@@ -54,13 +54,14 @@ namespace SkiverleihReworked
             }
 
             dgCustomerItems.ItemsSource = dataLogic.GetCustomerItems();
+            dgItem.ItemsSource = dataLogic.GetItems();
         }
-
+        
         private void btnReturn_Click(object sender, RoutedEventArgs e)
         {
             if(dgCustomerItems.SelectedItem == null)
             {
-                MessageBox.Show("Select an item please!");
+                MessageBox.Show("Please select an item!");
             }
             else
             {
@@ -68,6 +69,7 @@ namespace SkiverleihReworked
                 dataLogic.ReturnCustomerItem(customerItem);
                 customerItem.Item.Status.StatusID = 1;
 
+                dgItem.ItemsSource = dataLogic.GetItems();
                 dgCustomerItems.ItemsSource = dataLogic.GetCustomerItems();
             }
         }

@@ -11,6 +11,7 @@ namespace SkiverleihReworked.Model
         public int ItemID { get; set; }
         public string Title { get; set; }
         public int Price { get; set; }
+        public int Count { get; set; }
         public Category Category { get; set; }
         public Status Status { get; set; }
         public List<CustomerItem> CustomerItems { get; set; }
