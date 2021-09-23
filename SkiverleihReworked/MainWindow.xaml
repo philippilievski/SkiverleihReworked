@@ -25,7 +25,8 @@
             <DataGrid
                 Name="dgCustomer"
                 AutoGenerateColumns="False"
-                IsReadOnly="True">
+                IsReadOnly="True"
+                SelectionChanged="dgCustomer_SelectionChanged">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding CustomerID}" Header="ID" />
                     <DataGridTextColumn Binding="{Binding Fullname}" Header="Full name" />
@@ -44,7 +45,8 @@
             <DataGrid
                 Name="dgItem"
                 AutoGenerateColumns="False"
-                IsReadOnly="True">
+                IsReadOnly="True"
+                SelectionChanged="dgItem_SelectionChanged">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding ItemID}" Header="ID" />
                     <DataGridTextColumn Binding="{Binding Title}" Header="Title" />
@@ -60,15 +62,32 @@
                 Edit
             </Button>
         </StackPanel>
-        <Button
-            Name="btnLend"
+        <StackPanel
+            Grid.Row="0"
             Grid.Column="2"
-            Width="50"
             HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Click="btnLend_Click">
-            Lend
-        </Button>
+            VerticalAlignment="Center">
+            <WrapPanel>
+                <Label
+                    Name="lblFullname"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center" />
+                <Label
+                    Name="lblItemTitle"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center" />
+            </WrapPanel>
+            <Button
+                Name="btnLend"
+                Grid.Column="2"
+                Width="50"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Click="btnLend_Click">
+                Lend
+            </Button>
+        </StackPanel>
+
         <DataGrid
             Name="dgCustomerItems"
             Grid.Row="1"

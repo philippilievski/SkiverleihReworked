@@ -33,6 +33,12 @@ namespace SkiverleihReworked
 
         private void btnLend_Click(object sender, RoutedEventArgs e)
         {
+            if(dgCustomer.SelectedItem == null || dgItem.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a customer and item");
+                return;
+            }
+
             Customer customer = (Customer)dgCustomer.SelectedItem;
             Item item = (Item)dgItem.SelectedItem;
             Status status = item.Status;
@@ -76,6 +82,18 @@ namespace SkiverleihReworked
         {
             EditItem editItem = new EditItem((Item)dgItem.SelectedItem);
             editItem.ShowDialog();
+        }
+
+        private void dgCustomer_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Customer customer = (Customer)dgCustomer.SelectedItem;
+            lblFullname.Content = customer.Fullname;
+        }
+
+        private void dgItem_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Item item = (Item)dgItem.SelectedItem;
+            lblItemTitle.Content = item.Title;
         }
     }
 }
